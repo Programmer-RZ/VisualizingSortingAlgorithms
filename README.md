@@ -1,6 +1,9 @@
 # VisualizingSortingAlgorithms
 Visualizing sorting algorithms using bars.
 
+# Requirements
+- Visual Studio 2022
+
 # Download
 I recommend download from this branch (main branch) instead of other branches. Main branch is has been tested and is the most stable.
 
