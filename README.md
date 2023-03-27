@@ -12,14 +12,25 @@ I recommend download from this branch (main branch) instead of other branches. M
 Development branch has new features and updates that are not tested and may be unstable.
 
 # Download
+You can either compile from the source or download the pre-built binaries from the latest release
+
+
+**Compiling from source**
+
 Clone this repo
 ```
 git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 ```
 
 Open the .sln file in Visual Studio
+Make sure you have SFML linked statically
 
 Build the project and run the .exe
+
+
+**Latest Release**
+
+https://github.com/Programmer-RZ/VisualizingSortingAlgorithms/releases/tag/v0.0.1
 
 # Overview
 Visualize sorting algorithms (bubble sort, etc). Other algorithms such as Merge Sort, Quick Sort, are to be added soon.
