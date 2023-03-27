@@ -12,7 +12,7 @@ public:
 
 	BubbleSort(int index, int sorted_indexes, std::string name);
 
-	void update(std::vector<int>& vec);
+	virtual void update(std::vector<int>& vec) override;
 
 	virtual void draw(sf::RenderWindow& window, std::vector<int>& vec) override;
 

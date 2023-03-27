@@ -6,7 +6,7 @@
 #include "bubble_sort.h"
 
 BubbleSort::BubbleSort(int index, int sorted_indexes, std::string name)
-	: index(index), sorted_indexes(sorted_indexes), Sort(name, false) 
+	: index(index), sorted_indexes(sorted_indexes), Sort(name, false, 0) 
 {}
 
 void BubbleSort::update(std::vector<int>& vec) {
