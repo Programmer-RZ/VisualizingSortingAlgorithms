@@ -30,8 +30,8 @@ git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 https://github.com/Programmer-RZ/VisualizingSortingAlgorithms/releases/tag/v0.0.1
 
 # Overview
-Visualize sorting algorithms (bubble sort, etc). Other algorithms such as Merge Sort, Quick Sort, are to be added soon.
+Visualize sorting algorithms (insertion sort, etc). Other algorithms such as Merge Sort, Quick Sort, are to be added soon.
 
 # Features
 - Timer
-- Bubble Sort
+- Insertion Sort
