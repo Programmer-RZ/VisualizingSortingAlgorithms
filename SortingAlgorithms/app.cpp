@@ -21,7 +21,7 @@ void App::run() {
     }
 
     BubbleSort* bubble_sort = new BubbleSort(0, 0, "Bubble Sort");
-
+    std::string currrent_sort_name = bubble_sort->getName();
 
     sf::Clock timer;
     timer.restart();
@@ -40,7 +40,7 @@ void App::run() {
     name.setFillColor(sf::Color(255, 255, 255));
     name.setCharacterSize(40);
     name.setPosition(sf::Vector2f(50, 25));
-    name.setString(bubble_sort->getName());
+    name.setString(currrent_sort_name);
 
 
     while (window.isOpen())
