@@ -14,19 +14,16 @@ Development branch has new features and updates that are not tested and may be u
 # Download
 You can either compile from the source or download the pre-built binaries from the latest release
 
-
 **Compiling from source**
 
-Clone this repo
+- Clone this repo
 ```
 git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 ```
+- Open the .sln file in Visual Studio
+- Make sure you have SFML linked statically
 
-Open the .sln file in Visual Studio
-Make sure you have SFML linked statically
-
-Build the project and run the .exe
-
+- Build the project and run the .exe
 
 **Latest Release**
 
