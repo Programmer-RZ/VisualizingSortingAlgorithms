@@ -1,6 +1,9 @@
 # VisualizingSortingAlgorithms
 Visualizing sorting algorithms using bars.
 
+![image](https://user-images.githubusercontent.com/123858154/228035449-d8f52123-bbe2-4e3f-b1cf-8c2ba88b299c.png)
+
+
 # Requirements
 - Visual Studio 2022 (older versions have not been tested)
 - SFML 2.1.5 or better
@@ -15,13 +18,18 @@ Development branch has new features and updates that are not tested and may be u
 
 **Compiling from source**
 
+- Make sure you have SFML linked statically
+
 - Clone this repo
 ```
 git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 ```
-- Open the .sln file in Visual Studio
-- Make sure you have SFML linked statically
+- Go to the directory
 
+- Open .sln file in Visual Studio
+```
+start SortingAlgorithms.sln
+```
 - Build the project and run the .exe
 
 **Releases**
