@@ -13,9 +13,9 @@ Development branch has new features and updates that are not tested and may be u
 
 # Download
 Clone this repo
-'''
+```
 git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
-'''
+```
 
 Open the .sln file in Visual Studio
 
