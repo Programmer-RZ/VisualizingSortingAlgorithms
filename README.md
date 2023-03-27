@@ -2,7 +2,7 @@
 Visualizing sorting algorithms using bars.
 
 # Requirements
-- Visual Studio 2022 (older versions have not been tested
+- Visual Studio 2022 (older versions have not been tested)
 - SFML 2.1.5 or better
 - Windows 10 or better
 
