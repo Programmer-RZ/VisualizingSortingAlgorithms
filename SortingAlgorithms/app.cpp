@@ -11,6 +11,7 @@ void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
 
+    // create random vector
     std::vector<int> vec = {};
 
     std::random_device rd;
@@ -20,9 +21,14 @@ void App::run() {
         vec.push_back(dist(rd));
     }
 
+    // bubble sort
     BubbleSort* bubble_sort = new BubbleSort(0, 0, "Bubble Sort");
+
+
     std::string currrent_sort_name = bubble_sort->getName();
 
+
+    // timer, font, text
     sf::Clock timer;
     timer.restart();
 
