@@ -7,12 +7,28 @@
 #include "global.h"
 #include "app.h"
 #include "bubble_sort.h"
+
 #include "selection_sort.h"
+
 
 void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
 
+<<<<<<< HEAD
+    std::vector<int> vec = {};
+
+    std::random_device rd;
+    std::uniform_int_distribution<int> dist(1, 250);
+
+    for (int i = 0; i < 250; i++) {
+        vec.push_back(dist(rd));
+    }
+
+    BubbleSort* bubble_sort = new BubbleSort(0, 0, "Bubble Sort");
+
+
+=======
     // create random vector
     std::vector<int> vec = {};
 
@@ -32,6 +48,7 @@ void App::run() {
 
 
     // timer, font, text
+>>>>>>> development
     sf::Clock timer;
     timer.restart();
 
@@ -90,7 +107,6 @@ void App::run() {
         if (!sort->isFinished()) {
             sort->update(vec);
             sort->sort(vec);
-
             int seconds = timer.getElapsedTime().asMilliseconds() / 1000;
             int milliseconds = timer.getElapsedTime().asMilliseconds() - seconds * 1000;
             time.setString("Time: " + std::to_string(seconds) + "." + std::to_string(milliseconds));
