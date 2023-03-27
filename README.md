@@ -35,4 +35,4 @@ Visualize sorting algorithms. Other algorithms such as Merge Sort, Quick Sort, a
 # Features
 - Timer
 - Bubble Sort
-- Insertion Sort
+- Selection Sort
