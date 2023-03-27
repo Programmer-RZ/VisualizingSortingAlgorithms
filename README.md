@@ -28,11 +28,18 @@ git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 
 - There are no releases
 
-
-# Overview
-Visualize sorting algorithms. Other algorithms such as Merge Sort, Quick Sort, are to be added soon.
-
 # Features
+**Current Features**
 - Timer
+
+**Features to be added**
+- FPS counter
+- UI
+- Summary of each algorithm
+
+**Current Sorting Algorithms**
 - Bubble Sort
 - Selection Sort
+
+**Sorting Algorithms to be added**
+- Radix sort
