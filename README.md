@@ -10,7 +10,7 @@ Visualizing sorting algorithms using bars.
 - Windows 10 or better
 
 # Branches
-I recommend download from this branch (main branch) instead of other branches. Main branch is has been tested and is the most stable.
+I recommend download from main branch instead of other branches. Main branch is has been tested and is the most stable.
 
 Development branch has new features and updates that are not tested and may be unstable.
 
