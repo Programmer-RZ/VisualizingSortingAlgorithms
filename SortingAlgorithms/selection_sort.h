@@ -2,15 +2,16 @@
 
 #include "sort.h"
 
-class BubbleSort : public Sort {
+class SelectionSort : public Sort {
 private:
 	int index;
-	
-	int sorted_indexes;
+
+	int min_index;
+
+	int test_index;
 
 public:
-
-	BubbleSort(int index, int sorted_indexes, std::string name);
+	SelectionSort(int index, int min_index, int test_index, std::string name);
 
 	virtual void update(std::vector<int>& vec) override;
 
