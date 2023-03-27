@@ -1,14 +1,8 @@
 # VisualizingSortingAlgorithms
 Visualizing sorting algorithms using bars.
 
-Development branch
-
-Has new features and updates
-
-WARNING: Has not been tested. May be unstable. Latest and stable release is in main branch
-
 # Requirements
-- Visual Studio 2022 (older versions have not been tested
+- Visual Studio 2022 (older versions have not been tested)
 - SFML 2.1.5 or better
 - Windows 10 or better
 
@@ -18,7 +12,6 @@ I recommend download from this branch (main branch) instead of other branches. M
 Development branch has new features and updates that are not tested and may be unstable.
 
 # Download
-You can either compile from the source or download the pre-built binaries from the latest release
 
 **Compiling from source**
 
@@ -31,12 +24,13 @@ git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 
 - Build the project and run the .exe
 
-**Latest Release**
+**Releases**
 
-https://github.com/Programmer-RZ/VisualizingSortingAlgorithms/releases/tag/v0.0.1
+- There are no releases
+
 
 # Overview
-Visualize sorting algorithms (bubble sort, etc). Other algorithms such as Merge Sort, Quick Sort, are to be added soon.
+Visualize sorting algorithms. Other algorithms such as Merge Sort, Quick Sort, are to be added soon.
 
 # Features
 - Timer
