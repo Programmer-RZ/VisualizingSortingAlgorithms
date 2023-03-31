@@ -15,21 +15,6 @@ void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
     window.setFramerateLimit(240);
-
-<<<<<<< HEAD
-    std::vector<int> vec = {};
-
-    std::random_device rd;
-    std::uniform_int_distribution<int> dist(1, 250);
-
-    for (int i = 0; i < 250; i++) {
-        vec.push_back(dist(rd));
-    }
-
-    BubbleSort* bubble_sort = new BubbleSort(0, 0, "Bubble Sort");
-
-
-=======
     // create random vector
     std::vector<int> vec = {};
 
@@ -49,7 +34,6 @@ void App::run() {
 
 
     // timer, font, text
->>>>>>> development
     sf::Clock timer;
     timer.restart();
 
