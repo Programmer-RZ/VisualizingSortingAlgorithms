@@ -123,7 +123,7 @@ void App::run() {
         }
 
         sort->draw(window, vec);
-        //window.draw(name);
+        window.draw(name);
         window.draw(time);
 
         // fps
