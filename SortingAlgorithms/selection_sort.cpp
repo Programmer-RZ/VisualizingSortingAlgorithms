@@ -28,8 +28,35 @@ void SelectionSort::draw(sf::RenderWindow& window, std::vector<int>& vec)
 		float width = float(WIDTH / vec.size());
 		bar.setSize(sf::Vector2f(width, height));
 		bar.setPosition(sf::Vector2f(float(width * i), float(HEIGHT - height)));
+		bar.setFillColor(sf::Color(255, 255, 255));
 		window.draw(bar);
 	}
+
+	float height, width;
+	bar.setFillColor(sf::Color(0, 0, 255));
+
+	// draw test_index bar
+	height = float(vec[this->test_index] * (HEIGHT - 100) / vec.size());
+	width = float(WIDTH / vec.size());
+	bar.setSize(sf::Vector2f(width, height));
+	bar.setPosition(sf::Vector2f(float(width * this->test_index), float(HEIGHT - height)));
+	window.draw(bar);
+
+	// draw min_index bar
+	height = float(vec[this->min_index] * (HEIGHT - 100) / vec.size());
+	width = float(WIDTH / vec.size());
+	bar.setSize(sf::Vector2f(width, height));
+	bar.setPosition(sf::Vector2f(float(width * this->min_index), float(HEIGHT - height)));
+	window.draw(bar);
+
+	// draw index bar
+	height = float(vec[this->index] * (HEIGHT - 100) / vec.size());
+	width = float(WIDTH / vec.size());
+	bar.setSize(sf::Vector2f(width, height));
+	bar.setPosition(sf::Vector2f(float(width * this->index), float(HEIGHT - height)));
+	window.draw(bar);
+
+
 }
 
 void SelectionSort::sort(std::vector<int>& vec) {
