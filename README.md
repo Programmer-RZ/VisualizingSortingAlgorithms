@@ -1,7 +1,8 @@
 # VisualizingSortingAlgorithms
 Visualizing sorting algorithms using bars.
 
-![image](https://user-images.githubusercontent.com/123858154/228035449-d8f52123-bbe2-4e3f-b1cf-8c2ba88b299c.png)
+![image](https://user-images.githubusercontent.com/123858154/229111944-d6ddb327-04b7-47f4-8eb7-e57f9a62122f.png)
+
 
 
 # Requirements
@@ -39,10 +40,10 @@ start SortingAlgorithms.sln
 # Features
 **Current Features**
 - Timer
-
-**Features to be added**
 - FPS counter
 - UI
+
+**Features to be added**
 - Summary of each algorithm
 
 **Current Sorting Algorithms**
@@ -50,4 +51,5 @@ start SortingAlgorithms.sln
 - Selection Sort
 
 **Sorting Algorithms to be added**
-- Radix sort
+
+Researching...
