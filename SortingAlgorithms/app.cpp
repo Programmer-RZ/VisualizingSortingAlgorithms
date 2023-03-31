@@ -15,7 +15,7 @@ void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
     window.setFramerateLimit(240);
-
+	
     // create random vector
     std::vector<int> vec = {};
 
