@@ -136,14 +136,20 @@
     <ClCompile Include="app.cpp" />
     <ClCompile Include="bubble_sort.cpp" />
     <ClCompile Include="main.cpp" />
+<<<<<<< HEAD
+=======
     <ClCompile Include="selection_sort.cpp" />
+>>>>>>> development
     <ClCompile Include="sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
     <ClInclude Include="bubble_sort.h" />
     <ClInclude Include="global.h" />
+<<<<<<< HEAD
+=======
     <ClInclude Include="selection_sort.h" />
+>>>>>>> development
     <ClInclude Include="sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
