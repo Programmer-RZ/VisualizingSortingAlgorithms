@@ -6,9 +6,10 @@
 
 #include "global.h"
 #include "app.h"
-#include "bubble_sort.h"
 
+#include "bubble_sort.h"
 #include "selection_sort.h"
+#include "cocktail_sort.h"
 
 
 void App::run() {
@@ -80,11 +81,16 @@ void App::run() {
                     delete sort;
 
                     if (id == 0) {
-                        sort = new SelectionSort(0, 0, 0, "Selection Sort");
+                        sort = new SelectionSort(-1, 0, 0, "Selection Sort");
                     }
 
-                    else {
-                        sort = new BubbleSort(0, 0, "Bubble Sort");
+                    else if (id == 1) {
+                        sort = new CocktailSort("Cocktail Sort", vec.size());
+                    }
+
+                    else if (id == 2) {
+                        Sort* sort = new BubbleSort(0, 0, "Bubble Sort");
+
                     }
 
                     currrent_sort_name = sort->getName();
@@ -117,7 +123,7 @@ void App::run() {
         }
 
         sort->draw(window, vec);
-        window.draw(name);
+        //window.draw(name);
         window.draw(time);
 
         // fps
