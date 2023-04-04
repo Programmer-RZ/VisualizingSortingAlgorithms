@@ -49,6 +49,7 @@ start SortingAlgorithms.sln
 **Current Sorting Algorithms**
 - Bubble Sort
 - Selection Sort
+- Cocktail Sort
 
 **Sorting Algorithms to be added**
 
