@@ -88,8 +88,8 @@ void App::run() {
                         sort = new CocktailSort("Cocktail Sort", vec.size());
                     }
 
-                    else if (id == 2) {
-                        Sort* sort = new BubbleSort(0, 0, "Bubble Sort");
+                    else {
+                        sort = new BubbleSort(0, 0, "Bubble Sort");
 
                     }
 
@@ -135,5 +135,4 @@ void App::run() {
         window.display();
 
     }
-    delete sort;
 }
