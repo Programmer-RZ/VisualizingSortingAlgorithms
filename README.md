@@ -50,6 +50,7 @@ start SortingAlgorithms.sln
 - Bubble Sort
 - Selection Sort
 - Cocktail Sort
+- Comb Sort
 
 **Sorting Algorithms to be added**
 
