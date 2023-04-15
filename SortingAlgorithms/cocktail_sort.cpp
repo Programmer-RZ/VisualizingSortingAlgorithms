@@ -1,7 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
-#include <string>
-
 #include "global.h"
 #include "cocktail_sort.h"
 

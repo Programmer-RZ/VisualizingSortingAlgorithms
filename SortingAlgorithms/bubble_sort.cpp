@@ -1,12 +1,8 @@
-#include <SFML/Graphics.hpp>
-#include <string>
-#include <vector>
-
 #include "global.h"
 #include "bubble_sort.h"
 
-BubbleSort::BubbleSort(int index, int sorted_indexes, std::string name)
-	: index(index), sorted_indexes(sorted_indexes), Sort(name, false, 0) 
+BubbleSort::BubbleSort(std::string name)
+	: index(0), sorted_indexes(0), Sort(name, false, 0) 
 {}
 
 void BubbleSort::update(std::vector<int>& vec) {

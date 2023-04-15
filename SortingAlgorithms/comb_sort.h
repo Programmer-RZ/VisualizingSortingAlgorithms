@@ -2,16 +2,20 @@
 
 #include "sort.h"
 
-class SelectionSort : public Sort {
+class CombSort : public Sort {
 private:
+	int gap;
 	int index;
 
-	int min_index;
+	bool loop;
 
-	int test_index;
+	bool swapped;
+
+private:
+	void getNextGap();
 
 public:
-	SelectionSort(std::string name);
+	CombSort(std::string name, int len);
 
 	virtual void update(std::vector<int>& vec) override;
 

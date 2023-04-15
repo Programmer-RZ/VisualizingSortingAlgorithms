@@ -2,7 +2,6 @@
 #include <vector>
 #include <random>
 #include <string>
-#include <iostream>
 
 #include "global.h"
 #include "app.h"
@@ -10,6 +9,7 @@
 #include "bubble_sort.h"
 #include "selection_sort.h"
 #include "cocktail_sort.h"
+#include "comb_sort.h"
 
 
 void App::run() {
@@ -30,7 +30,7 @@ void App::run() {
     std::vector<int> unsorted_vec = vec;
 
     // bubble sort
-    Sort* sort = new BubbleSort(0, 0, "Bubble Sort");
+    Sort* sort = new BubbleSort("Bubble Sort");
 
     std::string currrent_sort_name = sort->getName();
 
@@ -81,15 +81,19 @@ void App::run() {
                     delete sort;
 
                     if (id == 0) {
-                        sort = new SelectionSort(-1, 0, 0, "Selection Sort");
+                        sort = new SelectionSort("Selection Sort");
                     }
 
                     else if (id == 1) {
                         sort = new CocktailSort("Cocktail Sort", vec.size());
                     }
 
+                    else if (id == 2) {
+                        sort = new CombSort("Comb Sort", vec.size());
+                    }
+
                     else {
-                        sort = new BubbleSort(0, 0, "Bubble Sort");
+                        sort = new BubbleSort("Bubble Sort");
 
                     }
 

@@ -10,7 +10,7 @@ private:
 
 public:
 
-	BubbleSort(int index, int sorted_indexes, std::string name);
+	BubbleSort(std::string name);
 
 	virtual void update(std::vector<int>& vec) override;
 

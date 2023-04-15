@@ -136,6 +136,7 @@
     <ClCompile Include="app.cpp" />
     <ClCompile Include="bubble_sort.cpp" />
     <ClCompile Include="cocktail_sort.cpp" />
+    <ClCompile Include="comb_sort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="selection_sort.cpp" />
     <ClCompile Include="sort.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="app.h" />
     <ClInclude Include="bubble_sort.h" />
     <ClInclude Include="cocktail_sort.h" />
+    <ClInclude Include="comb_sort.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="selection_sort.h" />
     <ClInclude Include="sort.h" />

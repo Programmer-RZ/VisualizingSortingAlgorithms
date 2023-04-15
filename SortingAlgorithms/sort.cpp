@@ -1,7 +1,3 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
-#include <string>
-
 #include "sort.h"
 
 Sort::Sort(std::string name, bool finished, int id)

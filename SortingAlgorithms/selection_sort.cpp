@@ -1,12 +1,8 @@
-#include <SFML/Graphics.hpp>
-#include <vector>
-#include <string>
-
 #include "global.h"
 #include "selection_sort.h"
 
-SelectionSort::SelectionSort(int index, int min_index, int test_index, std::string name)
-	: index(index), min_index(min_index), test_index(test_index), Sort(name, false, 1)
+SelectionSort::SelectionSort(std::string name)
+	: index(-1), min_index(0), test_index(0), Sort(name, false, 1)
 {}
 
 void SelectionSort::update(std::vector<int>& vec) {
