@@ -15,24 +15,32 @@
 void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
-    window.setFramerateLimit(240);
 	
-    // create random vector
+    // create vector
     std::vector<int> vec = {};
 
-    std::random_device rd;
-    std::uniform_int_distribution<int> dist(1, 100);
+    for (int i = 0; i < 200; i++) {
+        vec.push_back(i);
+    }
 
-    for (int i = 0; i < 100; i++) {
-        vec.push_back(dist(rd));
+    // randomize
+    std::random_device rd;
+    std::uniform_int_distribution<int> dist(0, 199);
+    for (int i = 0; i < 400; i++) {
+        std::swap(vec[dist(rd)], vec[dist(rd)]);
     }
 
     std::vector<int> unsorted_vec = vec;
 
-    // bubble sort
-    Sort* sort = new BubbleSort("Bubble Sort");
+    // sorts
+    BubbleSort bubblesort = BubbleSort("Bubble Sort");
+    SelectionSort selectionsort = SelectionSort("Selection Sort");
+    CocktailSort cocktailsort = CocktailSort("Cocktail Sort", vec.size());
+    CombSort combsort = CombSort("Comb Sort", vec.size());
 
-    std::string currrent_sort_name = sort->getName();
+    Sort* sortPtr = &bubblesort;
+
+    std::string currrent_sort_name = sortPtr->getName();
 
 
     // timer, font, text
@@ -76,28 +84,39 @@ void App::run() {
                 window.close();
 
             case (sf::Event::MouseButtonPressed):
-                if (sort->isFinished()) {
-                    int id = sort->getID();
-                    delete sort;
+                if (sortPtr->isFinished()) {
+                    int id = sortPtr->getID();
 
                     if (id == 0) {
-                        sort = new SelectionSort("Selection Sort");
+                        // reset
+                        selectionsort = SelectionSort("Selection Sort");
+
+                        sortPtr = &selectionsort;
                     }
 
                     else if (id == 1) {
-                        sort = new CocktailSort("Cocktail Sort", vec.size());
+                        // reset
+                        cocktailsort = CocktailSort("Cocktail Sort", vec.size());
+
+                        sortPtr = &cocktailsort;
                     }
 
                     else if (id == 2) {
-                        sort = new CombSort("Comb Sort", vec.size());
+                        // reset
+                        combsort = CombSort("Comb Sort", vec.size());
+
+                        sortPtr = &combsort;
                     }
 
                     else {
-                        sort = new BubbleSort("Bubble Sort");
+                        // reset
+                        bubblesort = BubbleSort("Bubble Sort");
+
+                        sortPtr = &bubblesort;
 
                     }
 
-                    currrent_sort_name = sort->getName();
+                    currrent_sort_name = sortPtr->getName();
                     name.setString(currrent_sort_name);
 
                     vec = unsorted_vec;
@@ -110,9 +129,9 @@ void App::run() {
         window.clear();
 
 
-        if (!sort->isFinished()) {
-            sort->update(vec);
-            sort->sort(vec);
+        if (!sortPtr->isFinished()) {
+            sortPtr->update(vec);
+            sortPtr->sort(vec);
             int seconds = timer.getElapsedTime().asMilliseconds() / 1000;
             int milliseconds = timer.getElapsedTime().asMilliseconds() - seconds * 1000;
             time.setString("Time: " + std::to_string(seconds) + "." + std::to_string(milliseconds));
@@ -126,13 +145,18 @@ void App::run() {
             window.draw(ui);
         }
 
-        sort->draw(window, vec);
+        sortPtr->draw(window, vec);
         window.draw(name);
         window.draw(time);
 
-        // fps
+        // delay
+        float delay = float(fps / 60000);
+
+        // round delay
+        delay = ((int)(delay * 1000 + .5) / 1000.0f);
+
         ui.setCharacterSize(25);
-        ui.setString("FPS: " + std::to_string(int(fps)));
+        ui.setString("Delay: " + std::to_string(delay).erase(4, 4));
         ui.setPosition(sf::Vector2f(800, 25));
         window.draw(ui);
 

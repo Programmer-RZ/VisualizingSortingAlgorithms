@@ -10,6 +10,7 @@ CombSort::CombSort(std::string name, int len)
 	Sort(name, false, 3)
 {}
 
+
 void CombSort::getNextGap() {
 	this->gap = int((this->gap * 10) / 13);
 
