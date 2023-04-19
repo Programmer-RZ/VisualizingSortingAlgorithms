@@ -1,8 +1,7 @@
 # VisualizingSortingAlgorithms
 Visualizing sorting algorithms using bars.
 
-![image](https://user-images.githubusercontent.com/123858154/229111944-d6ddb327-04b7-47f4-8eb7-e57f9a62122f.png)
-
+![image](https://user-images.githubusercontent.com/123858154/233177007-67cf91c8-20b4-4fcd-b9b4-7540254cb97e.png)
 
 
 # Requirements
@@ -40,8 +39,9 @@ start SortingAlgorithms.sln
 # Features
 **Current Features**
 - Timer
-- FPS counter
+- Delay
 - UI
+- Array of 200 elements
 
 **Features to be added**
 - Summary of each algorithm
