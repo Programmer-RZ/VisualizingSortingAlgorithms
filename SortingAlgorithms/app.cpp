@@ -38,7 +38,7 @@ void App::run() {
     CocktailSort cocktailsort = CocktailSort("Cocktail Sort", vec.size());
     CombSort combsort = CombSort("Comb Sort", vec.size());
 
-    Sort* sortPtr = &bubblesort;
+    Sort* sortPtr = &combsort;
 
     std::string currrent_sort_name = sortPtr->getName();
 

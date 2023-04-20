@@ -31,6 +31,14 @@ void CombSort::update(std::vector<int>& vec) {
 			this->finished = true;
 		}
 	}
+	else {
+		this->index += 1;
+
+		if (this->index >= vec.size() - this->gap) {
+			this->index = 0;
+			this->loop = false;
+		}
+	}
 }
 
 void CombSort::draw(sf::RenderWindow& window, std::vector<int>& vec)
@@ -57,13 +65,6 @@ void CombSort::sort(std::vector<int>& vec) {
 		if (vec[this->index] > vec[this->index + this->gap]) {
 			std::swap(vec[this->index], vec[this->index + this->gap]);
 			this->swapped = true;
-		}
-
-		this->index += 1;
-
-		if (this->index >= vec.size() - this->gap) {
-			this->index = 0;
-			this->loop = false;
 		}
 	}
 }
