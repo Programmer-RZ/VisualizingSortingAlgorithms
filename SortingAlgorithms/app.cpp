@@ -10,11 +10,13 @@
 #include "selection_sort.h"
 #include "cocktail_sort.h"
 #include "comb_sort.h"
+#include "insertion_sort.h"
 
 
 void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
+    sf::View view = window.getDefaultView();
 	
     // create vector
     std::vector<int> vec = {};
@@ -37,8 +39,9 @@ void App::run() {
     SelectionSort selectionsort = SelectionSort("Selection Sort");
     CocktailSort cocktailsort = CocktailSort("Cocktail Sort", vec.size());
     CombSort combsort = CombSort("Comb Sort", vec.size());
+    InsertionSort insertionsort = InsertionSort("Insertion Sort");
 
-    Sort* sortPtr = &combsort;
+    Sort* sortPtr = &bubblesort;
 
     std::string currrent_sort_name = sortPtr->getName();
 
@@ -83,25 +86,39 @@ void App::run() {
             case (sf::Event::Closed):
                 window.close();
 
+            case (sf::Event::Resized):
+                view.setSize({
+                static_cast<float>(event.size.width),
+                static_cast<float>(event.size.height)
+                    });
+                window.setView(view);
+
             case (sf::Event::MouseButtonPressed):
                 if (sortPtr->isFinished()) {
                     int id = sortPtr->getID();
 
                     if (id == 0) {
                         // reset
+                        insertionsort = InsertionSort("Insertion Sort");
+
+                        sortPtr = &insertionsort;
+                    }
+
+                    else if (id == 1) {
+                        // reset
                         selectionsort = SelectionSort("Selection Sort");
 
                         sortPtr = &selectionsort;
                     }
 
-                    else if (id == 1) {
+                    else if (id == 2) {
                         // reset
                         cocktailsort = CocktailSort("Cocktail Sort", vec.size());
 
                         sortPtr = &cocktailsort;
                     }
 
-                    else if (id == 2) {
+                    else if (id == 3) {
                         // reset
                         combsort = CombSort("Comb Sort", vec.size());
 

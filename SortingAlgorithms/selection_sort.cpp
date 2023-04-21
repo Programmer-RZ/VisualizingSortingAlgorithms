@@ -2,7 +2,7 @@
 #include "selection_sort.h"
 
 SelectionSort::SelectionSort(std::string name)
-	: index(-1), min_index(0), test_index(0), Sort(name, false, 1)
+	: index(-1), min_index(0), test_index(0), Sort(name, false, 2)
 {}
 
 void SelectionSort::update(std::vector<int>& vec) {

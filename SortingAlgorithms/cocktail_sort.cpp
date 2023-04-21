@@ -8,7 +8,7 @@ CocktailSort::CocktailSort(std::string name, int len)
     end(len - 1),
     index(0),
     direction(""),
-    Sort(name, false, 2)
+    Sort(name, false, 3)
 {}
 
 void CocktailSort::update(std::vector<int>& vec) {

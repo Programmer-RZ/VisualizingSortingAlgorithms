@@ -7,7 +7,7 @@ CombSort::CombSort(std::string name, int len)
 	index(0),
 	loop(false),
 	swapped(true),
-	Sort(name, false, 3)
+	Sort(name, false, 4)
 {}
 
 
