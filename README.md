@@ -32,7 +32,7 @@ git clone https://github.com/Programmer-RZ/VisualizingSortingAlgorithms.git
 ```
 start SortingAlgorithms.sln
 ```
-- Build the project and run the .exe
+- Build the project in Release and x86
 
 **Releases**
 
