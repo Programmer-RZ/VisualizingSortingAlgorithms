@@ -43,7 +43,7 @@ start SortingAlgorithms.sln
 - Timer
 - Delay
 - UI
-- Array of 200 elements
+- Random Array
 
 **Features to be added**
 - Summary of each algorithm
