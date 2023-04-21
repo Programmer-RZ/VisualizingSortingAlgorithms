@@ -1,7 +1,9 @@
 # VisualizingSortingAlgorithms
 Visualizing sorting algorithms using bars.
 
-![image](https://user-images.githubusercontent.com/123858154/233177007-67cf91c8-20b4-4fcd-b9b4-7540254cb97e.png)
+
+
+https://user-images.githubusercontent.com/123858154/233691153-3b032f36-9062-4c30-9453-f09c0014a60a.mp4
 
 
 # Requirements
@@ -51,6 +53,7 @@ start SortingAlgorithms.sln
 - Selection Sort
 - Cocktail Sort
 - Comb Sort
+- Insertion Sort
 
 **Sorting Algorithms to be added**
 
