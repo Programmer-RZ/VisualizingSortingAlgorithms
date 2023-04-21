@@ -2,6 +2,7 @@
 #include <vector>
 #include <random>
 #include <string>
+#include <iostream>
 
 #include "global.h"
 #include "app.h"
@@ -12,6 +13,26 @@
 #include "comb_sort.h"
 #include "insertion_sort.h"
 
+// shuffle animation functions
+void shuffleAnimation(std::vector<int>& vec) {
+    // randomize
+    std::random_device rd;
+    std::uniform_int_distribution<int> dist(0, (vec.size() - 1));
+    std::swap(vec[dist(rd)], vec[dist(rd)]);
+}
+
+void drawVec(std::vector<int>& vec, sf::RenderWindow& window) {
+    sf::RectangleShape bar;
+    bar.setFillColor(sf::Color(255, 255, 255));
+    for (int i = 0; i < int(vec.size()); i++) {
+
+        float height = float(vec[i] * (HEIGHT - 100) / vec.size());
+        float width = float(WIDTH / vec.size());
+        bar.setSize(sf::Vector2f(width, height));
+        bar.setPosition(sf::Vector2f(float(width * i), float(HEIGHT - height)));
+        window.draw(bar);
+    }
+}
 
 void App::run() {
 
@@ -20,19 +41,16 @@ void App::run() {
 	
     // create vector
     std::vector<int> vec = {};
+	vec.clear();
+	for (int i = 0; i < 100; i++) {
+		vec.push_back(i);
+	}
 
-    for (int i = 0; i < 200; i++) {
-        vec.push_back(i);
-    }
-
-    // randomize
-    std::random_device rd;
-    std::uniform_int_distribution<int> dist(0, 199);
-    for (int i = 0; i < 400; i++) {
-        std::swap(vec[dist(rd)], vec[dist(rd)]);
-    }
-
-    std::vector<int> unsorted_vec = vec;
+    // bool for shuffle animation
+    bool shuffle = true;
+    int shuffleCount = 0;
+	sf::Clock shuffleDelay;
+	shuffleDelay.restart();
 
     // sorts
     BubbleSort bubblesort = BubbleSort("Bubble Sort");
@@ -40,23 +58,18 @@ void App::run() {
     CocktailSort cocktailsort = CocktailSort("Cocktail Sort", vec.size());
     CombSort combsort = CombSort("Comb Sort", vec.size());
     InsertionSort insertionsort = InsertionSort("Insertion Sort");
-
     Sort* sortPtr = &bubblesort;
-
     std::string currrent_sort_name = sortPtr->getName();
 
 
-    // timer, font, text
-    sf::Clock timer;
-    timer.restart();
-
+    // font, text
     sf::Font font;
     font.loadFromFile("Montserrat-Regular.ttf");
 
     sf::Text time;
     time.setFont(font);
     time.setFillColor(sf::Color(255, 255, 255));
-    time.setCharacterSize(30);
+    time.setCharacterSize(25);
     time.setPosition(sf::Vector2f(50, 100));
 
     sf::Text name;
@@ -71,13 +84,12 @@ void App::run() {
     ui.setFillColor(sf::Color(255, 255, 255));
 
 
-    sf::Clock clock;
-    float fps;
+    sf::Clock delay;
+    sf::Clock timer;
+    timer.restart();
 
     while (window.isOpen())
     {
-        float currentTime = clock.restart().asSeconds();
-        fps = 1.0f / (currentTime);
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -86,6 +98,8 @@ void App::run() {
             case (sf::Event::Closed):
                 window.close();
 
+                break;
+
             case (sf::Event::Resized):
                 view.setSize({
                 static_cast<float>(event.size.width),
@@ -93,42 +107,66 @@ void App::run() {
                     });
                 window.setView(view);
 
+                break;
+
             case (sf::Event::MouseButtonPressed):
                 if (sortPtr->isFinished()) {
                     int id = sortPtr->getID();
 
                     if (id == 0) {
+						vec.clear();
+						for (int i = 0; i < 250; i++) {
+							vec.push_back(i);
+						}
+						
                         // reset
                         insertionsort = InsertionSort("Insertion Sort");
-
                         sortPtr = &insertionsort;
                     }
 
                     else if (id == 1) {
+						vec.clear();
+						for (int i = 0; i < 150; i++) {
+							vec.push_back(i);
+						}
+						
                         // reset
                         selectionsort = SelectionSort("Selection Sort");
-
                         sortPtr = &selectionsort;
+						
                     }
 
                     else if (id == 2) {
+						vec.clear();
+						for (int i = 0; i < 150; i++) {
+							vec.push_back(i);
+						}
+						
                         // reset
                         cocktailsort = CocktailSort("Cocktail Sort", vec.size());
-
                         sortPtr = &cocktailsort;
+						
                     }
 
                     else if (id == 3) {
+						vec.clear();
+						for (int i = 0; i < 300; i++) {
+							vec.push_back(i);
+						}
+						
                         // reset
                         combsort = CombSort("Comb Sort", vec.size());
-
                         sortPtr = &combsort;
                     }
 
                     else {
                         // reset
+						vec.clear();
+						for (int i = 0; i < 150; i++) {
+							vec.push_back(i);
+						}
+						
                         bubblesort = BubbleSort("Bubble Sort");
-
                         sortPtr = &bubblesort;
 
                     }
@@ -136,22 +174,47 @@ void App::run() {
                     currrent_sort_name = sortPtr->getName();
                     name.setString(currrent_sort_name);
 
-                    vec = unsorted_vec;
+                    shuffle = true;
+					shuffleCount = 0;
 
                     timer.restart();
+                    break;
                 }
             }
         }
 
         window.clear();
 
+        if (shuffle) {
+			if (shuffleDelay.getElapsedTime().asMilliseconds() >= 5) {
+				shuffleAnimation(vec);
+				shuffleCount += 1;
+				shuffleDelay.restart();
+			}
+
+            if (shuffleCount >= (vec.size() * 2)) {
+                shuffle = false;
+            }
+			
+			drawVec(vec, window);
+            window.display();
+
+            continue;
+        }
 
         if (!sortPtr->isFinished()) {
             sortPtr->update(vec);
             sortPtr->sort(vec);
-            int seconds = timer.getElapsedTime().asMilliseconds() / 1000;
-            int milliseconds = timer.getElapsedTime().asMilliseconds() - seconds * 1000;
-            time.setString("Time: " + std::to_string(seconds) + "." + std::to_string(milliseconds));
+
+
+            int milliseconds = int(timer.getElapsedTime().asMilliseconds());
+            int seconds = int(milliseconds / 1000);
+            // subtract milliseconds from seconds
+            // to get seconds.milliseconds
+            milliseconds -= seconds * 1000;
+            //std::cout << milliseconds << std::endl;
+
+            time.setString("Sort time approx. = " + std::to_string(seconds) + "." + std::to_string(milliseconds) + " ms");
 
         }
 
@@ -167,17 +230,19 @@ void App::run() {
         window.draw(time);
 
         // delay
-        float delay = float(fps / 60000);
+        int d = int(delay.getElapsedTime().asMicroseconds());
 
-        // round delay
-        delay = ((int)(delay * 1000 + .5) / 1000.0f);
+        int milliseconds = int(d / 1000);
+        int microseconds = int((d - milliseconds * 1000) / 100);
 
         ui.setCharacterSize(25);
-        ui.setString("Delay: " + std::to_string(delay).erase(4, 4));
-        ui.setPosition(sf::Vector2f(800, 25));
+        ui.setString("Delay: " + std::to_string(milliseconds) + "." + std::to_string(microseconds) + " ms");
+        ui.setPosition(sf::Vector2f(WIDTH - 200, 25));
         window.draw(ui);
 
         window.display();
 
+        // start delay timer at end of each frame
+        delay.restart();
     }
 }
