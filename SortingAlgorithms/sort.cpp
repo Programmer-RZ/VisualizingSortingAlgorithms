@@ -22,6 +22,10 @@ int Sort::getID()
 	return this->id;
 }
 
+void Sort::resetArray(std::vector<int>& vec)
+{
+}
+
 void Sort::update(std::vector<int>& vec)
 {
 }

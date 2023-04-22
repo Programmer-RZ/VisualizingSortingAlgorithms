@@ -23,6 +23,8 @@ public:
 
 	int getID();
 
+	virtual void resetArray(std::vector<int>& vec);
+
 	virtual void update(std::vector<int>& vec);
 
 	virtual void draw(sf::RenderWindow& window, std::vector<int>& vec);

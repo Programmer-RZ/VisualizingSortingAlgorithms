@@ -5,6 +5,13 @@ BubbleSort::BubbleSort(std::string name)
 	: index(0), sorted_indexes(0), Sort(name, false, 0) 
 {}
 
+void BubbleSort::resetArray(std::vector<int>& vec) {
+    vec.clear();
+    for (int i = 0; i < 150; i++) {
+        vec.push_back(i);
+    }
+}
+
 void BubbleSort::update(std::vector<int>& vec) {
     this->index += 1;
     if (this->index >= int(vec.size() - 1 - this->sorted_indexes)) {

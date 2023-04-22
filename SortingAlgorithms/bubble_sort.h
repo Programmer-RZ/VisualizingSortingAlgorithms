@@ -12,6 +12,8 @@ public:
 
 	BubbleSort(std::string name);
 
+	virtual void resetArray(std::vector<int>& vec) override;
+
 	virtual void update(std::vector<int>& vec) override;
 
 	virtual void draw(sf::RenderWindow& window, std::vector<int>& vec) override;

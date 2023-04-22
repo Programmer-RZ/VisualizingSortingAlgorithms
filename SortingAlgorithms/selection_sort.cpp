@@ -5,6 +5,13 @@ SelectionSort::SelectionSort(std::string name)
 	: index(-1), min_index(0), test_index(0), Sort(name, false, 2)
 {}
 
+void SelectionSort::resetArray(std::vector<int>& vec) {
+	vec.clear();
+	for (int i = 0; i < 150; i++) {
+		vec.push_back(i);
+	}
+}
+
 void SelectionSort::update(std::vector<int>& vec) {
 	if (this->test_index >= int(vec.size())) {
 		this->index += 1;

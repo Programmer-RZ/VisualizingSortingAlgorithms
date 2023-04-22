@@ -38,13 +38,9 @@ void App::run() {
 
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sorting Algorithms");
     sf::View view = window.getDefaultView();
-	
+
     // create vector
     std::vector<int> vec = {};
-	vec.clear();
-	for (int i = 0; i < 150; i++) {
-		vec.push_back(i);
-	}
 
     // bool for shuffle animation
     bool shuffle = true;
@@ -53,14 +49,16 @@ void App::run() {
 	shuffleDelay.restart();
 
     // sorts
-    BubbleSort bubblesort = BubbleSort("Bubble Sort");
-    SelectionSort selectionsort = SelectionSort("Selection Sort");
-    CocktailSort cocktailsort = CocktailSort("Cocktail Sort", vec.size());
-    CombSort combsort = CombSort("Comb Sort", vec.size());
-    InsertionSort insertionsort = InsertionSort("Insertion Sort");
+    BubbleSort bubblesort("Bubble Sort");
+    SelectionSort selectionsort("Selection Sort");
+    CocktailSort cocktailsort("Cocktail Sort", vec.size());
+    CombSort combsort("Comb Sort", vec.size());
+    InsertionSort insertionsort("Insertion Sort");
     Sort* sortPtr = &bubblesort;
     std::string currrent_sort_name = sortPtr->getName();
 
+    // set vector length based on current algorithm
+    bubblesort.resetArray(vec);
 
     // font, text
     sf::Font font;
@@ -81,6 +79,7 @@ void App::run() {
     name.setPosition(sf::Vector2f(50, 25));
     name.setString(currrent_sort_name);
 
+    // reuse the same text for the stats
     sf::Text ui;
     ui.setFont(font);
     ui.setFillColor(sf::Color(255, 255, 255));
@@ -114,61 +113,34 @@ void App::run() {
                     int id = sortPtr->getID();
 
                     if (id == 0) {
-						vec.clear();
-						for (int i = 0; i < 250; i++) {
-							vec.push_back(i);
-						}
-						
                         // reset
+                        insertionsort.resetArray(vec);
                         insertionsort = InsertionSort("Insertion Sort");
                         sortPtr = &insertionsort;
                     }
-
                     else if (id == 1) {
-						vec.clear();
-						for (int i = 0; i < 150; i++) {
-							vec.push_back(i);
-						}
-						
                         // reset
+                        selectionsort.resetArray(vec);
                         selectionsort = SelectionSort("Selection Sort");
                         sortPtr = &selectionsort;
-						
                     }
-
                     else if (id == 2) {
-						vec.clear();
-						for (int i = 0; i < 150; i++) {
-							vec.push_back(i);
-						}
-						
                         // reset
+                        cocktailsort.resetArray(vec);
                         cocktailsort = CocktailSort("Cocktail Sort", vec.size());
                         sortPtr = &cocktailsort;
-						
                     }
-
                     else if (id == 3) {
-						vec.clear();
-						for (int i = 0; i < 300; i++) {
-							vec.push_back(i);
-						}
-						
                         // reset
+                        combsort.resetArray(vec);
                         combsort = CombSort("Comb Sort", vec.size());
                         sortPtr = &combsort;
                     }
-
                     else {
                         // reset
-						vec.clear();
-						for (int i = 0; i < 150; i++) {
-							vec.push_back(i);
-						}
-						
+                        bubblesort.resetArray(vec);
                         bubblesort = BubbleSort("Bubble Sort");
                         sortPtr = &bubblesort;
-
                     }
 
                     currrent_sort_name = sortPtr->getName();
@@ -185,6 +157,7 @@ void App::run() {
         window.clear();
 
         if (shuffle) {
+            name.setString("Shuffling");
 			if (shuffleDelay.getElapsedTime().asMilliseconds() >= 5) {
 				shuffleAnimation(vec);
 				shuffleCount += 1;
@@ -196,6 +169,9 @@ void App::run() {
             }
 			
 			drawVec(vec, window);
+
+            window.draw(name);
+
             window.display();
 
             continue;

@@ -10,6 +10,12 @@ CombSort::CombSort(std::string name, int len)
 	Sort(name, false, 4)
 {}
 
+void CombSort::resetArray(std::vector<int>& vec) {
+	vec.clear();
+	for (int i = 0; i < 300; i++) {
+		vec.push_back(i);
+	}
+}
 
 void CombSort::getNextGap() {
 	this->gap = int((this->gap * 10) / 13);
