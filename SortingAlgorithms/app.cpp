@@ -42,7 +42,7 @@ void App::run() {
     // create vector
     std::vector<int> vec = {};
 	vec.clear();
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 150; i++) {
 		vec.push_back(i);
 	}
 
@@ -65,12 +65,14 @@ void App::run() {
     // font, text
     sf::Font font;
     font.loadFromFile("Montserrat-Regular.ttf");
-
+	
+	/*
     sf::Text time;
     time.setFont(font);
     time.setFillColor(sf::Color(255, 255, 255));
     time.setCharacterSize(25);
     time.setPosition(sf::Vector2f(50, 100));
+	*/
 
     sf::Text name;
     name.setFont(font);
@@ -85,9 +87,7 @@ void App::run() {
 
 
     sf::Clock delay;
-    sf::Clock timer;
-    timer.restart();
-
+	
     while (window.isOpen())
     {
 
@@ -177,7 +177,6 @@ void App::run() {
                     shuffle = true;
 					shuffleCount = 0;
 
-                    timer.restart();
                     break;
                 }
             }
@@ -205,17 +204,6 @@ void App::run() {
         if (!sortPtr->isFinished()) {
             sortPtr->update(vec);
             sortPtr->sort(vec);
-
-
-            int milliseconds = int(timer.getElapsedTime().asMilliseconds());
-            int seconds = int(milliseconds / 1000);
-            // subtract milliseconds from seconds
-            // to get seconds.milliseconds
-            milliseconds -= seconds * 1000;
-            //std::cout << milliseconds << std::endl;
-
-            time.setString("Sort time approx. = " + std::to_string(seconds) + "." + std::to_string(milliseconds) + " ms");
-
         }
 
         else {
@@ -227,7 +215,6 @@ void App::run() {
 
         sortPtr->draw(window, vec);
         window.draw(name);
-        window.draw(time);
 
         // delay
         int d = int(delay.getElapsedTime().asMicroseconds());
