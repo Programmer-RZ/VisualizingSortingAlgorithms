@@ -10,11 +10,19 @@ CombSort::CombSort(std::string name, int len)
 	Sort(name, false, 4)
 {}
 
+void CombSort::resetParams(int len) {
+	this->gap = len;
+	this->index = 0;
+	this->loop = false;
+	this->swapped = true;
+	this->finished = false;
+}
+
 void CombSort::resetArray(std::vector<int>& vec) {
 	vec.clear();
-	for (int i = 0; i < 300; i++) {
-		vec.push_back(i);
-	}
+    for (int i = 0; i < 400; i++) {
+        vec.push_back(i);
+    }
 }
 
 void CombSort::getNextGap() {

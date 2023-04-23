@@ -11,6 +11,8 @@ private:
 public:
 
 	BubbleSort(std::string name);
+	
+	virtual void resetParams(int len);
 
 	virtual void resetArray(std::vector<int>& vec) override;
 

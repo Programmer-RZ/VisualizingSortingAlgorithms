@@ -9,6 +9,14 @@ InsertionSort::InsertionSort(std::string name)
 	Sort(name, false, 1)
 {}
 
+void InsertionSort::resetParams(int len) {
+	this->index = 0;
+	this->j = 0;
+	this->key = 0;
+	this->loop = false;
+	this->finished = false;
+}
+
 void InsertionSort::resetArray(std::vector<int>& vec) {
 	vec.clear();
 	for (int i = 0; i < 250; i++) {

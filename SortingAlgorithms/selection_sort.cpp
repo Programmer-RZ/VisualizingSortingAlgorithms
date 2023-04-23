@@ -5,6 +5,13 @@ SelectionSort::SelectionSort(std::string name)
 	: index(-1), min_index(0), test_index(0), Sort(name, false, 2)
 {}
 
+void SelectionSort::resetParams(int len) {
+	this->index = -1;
+	this->min_index = 0;
+	this->test_index = 0;
+	this->finished = false;
+}
+
 void SelectionSort::resetArray(std::vector<int>& vec) {
 	vec.clear();
 	for (int i = 0; i < 150; i++) {

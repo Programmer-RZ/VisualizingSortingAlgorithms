@@ -11,9 +11,19 @@ CocktailSort::CocktailSort(std::string name, int len)
     Sort(name, false, 3)
 {}
 
+void CocktailSort::resetParams(int len) {
+	this->swapped = true;
+	this->looping = false;
+	this->start = 0;
+	this->end = (len - 1);
+	this->index = 0;
+	this->direction = "";
+	this->finished = false;
+}
+
 void CocktailSort::resetArray(std::vector<int>& vec) {
     vec.clear();
-    for (int i = 0; i < 150; i++) {
+    for (int i = 0; i < 250; i++) {
         vec.push_back(i);
     }
 }

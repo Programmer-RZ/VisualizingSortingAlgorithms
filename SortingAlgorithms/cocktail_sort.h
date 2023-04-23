@@ -15,6 +15,8 @@ private:
 
 public:
 	CocktailSort(std::string name, int len);
+	
+	virtual void resetParams(int len);
 
 	virtual void resetArray(std::vector<int>& vec) override;
 

@@ -6,6 +6,11 @@ Sort::Sort(std::string name, bool finished, int id)
 	this->bar.setFillColor(sf::Color(255, 255, 255));
 }
 
+void Sort::resetParams(int len) 
+{
+	
+} 
+
 
 bool Sort::isFinished()
 {

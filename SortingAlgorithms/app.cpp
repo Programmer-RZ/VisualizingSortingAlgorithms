@@ -115,31 +115,31 @@ void App::run() {
                     if (id == 0) {
                         // reset
                         insertionsort.resetArray(vec);
-                        insertionsort = InsertionSort("Insertion Sort");
+                        insertionsort.resetParams(vec.size());
                         sortPtr = &insertionsort;
                     }
                     else if (id == 1) {
                         // reset
                         selectionsort.resetArray(vec);
-                        selectionsort = SelectionSort("Selection Sort");
+                        selectionsort.resetParams(vec.size());
                         sortPtr = &selectionsort;
                     }
                     else if (id == 2) {
                         // reset
                         cocktailsort.resetArray(vec);
-                        cocktailsort = CocktailSort("Cocktail Sort", vec.size());
+                        cocktailsort.resetParams(vec.size());
                         sortPtr = &cocktailsort;
                     }
                     else if (id == 3) {
                         // reset
                         combsort.resetArray(vec);
-                        combsort = CombSort("Comb Sort", vec.size());
+                        combsort.resetParams(vec.size());
                         sortPtr = &combsort;
                     }
                     else {
                         // reset
                         bubblesort.resetArray(vec);
-                        bubblesort = BubbleSort("Bubble Sort");
+                        bubblesort.resetParams(vec.size());
                         sortPtr = &bubblesort;
                     }
 
@@ -157,7 +157,10 @@ void App::run() {
         window.clear();
 
         if (shuffle) {
-            name.setString("Shuffling");
+            ui.setString("Shuffling");
+			ui.setCharacterSize(40);
+			ui.setPosition(sf::Vector2f(50, 25));
+			
 			if (shuffleDelay.getElapsedTime().asMilliseconds() >= 5) {
 				shuffleAnimation(vec);
 				shuffleCount += 1;
@@ -170,7 +173,7 @@ void App::run() {
 			
 			drawVec(vec, window);
 
-            window.draw(name);
+            window.draw(ui);
 
             window.display();
 
