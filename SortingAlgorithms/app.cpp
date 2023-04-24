@@ -58,7 +58,8 @@ void App::run() {
     std::string currrent_sort_name = sortPtr->getName();
 
     // set vector length based on current algorithm
-    bubblesort.resetArray(vec);
+    sortPtr->resetArray(vec);
+    sortPtr->resetParams(vec.size());
 
     // font, text
     sf::Font font;
@@ -113,35 +114,24 @@ void App::run() {
                     int id = sortPtr->getID();
 
                     if (id == 0) {
-                        // reset
-                        insertionsort.resetArray(vec);
-                        insertionsort.resetParams(vec.size());
                         sortPtr = &insertionsort;
                     }
                     else if (id == 1) {
-                        // reset
-                        selectionsort.resetArray(vec);
-                        selectionsort.resetParams(vec.size());
                         sortPtr = &selectionsort;
                     }
                     else if (id == 2) {
-                        // reset
-                        cocktailsort.resetArray(vec);
-                        cocktailsort.resetParams(vec.size());
                         sortPtr = &cocktailsort;
                     }
                     else if (id == 3) {
-                        // reset
-                        combsort.resetArray(vec);
-                        combsort.resetParams(vec.size());
                         sortPtr = &combsort;
                     }
                     else {
-                        // reset
-                        bubblesort.resetArray(vec);
-                        bubblesort.resetParams(vec.size());
                         sortPtr = &bubblesort;
                     }
+
+                    // reset
+                    sortPtr->resetArray(vec);
+                    sortPtr->resetParams(vec.size());
 
                     currrent_sort_name = sortPtr->getName();
                     name.setString(currrent_sort_name);

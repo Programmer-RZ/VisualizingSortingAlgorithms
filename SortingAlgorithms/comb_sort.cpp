@@ -20,7 +20,7 @@ void CombSort::resetParams(int len) {
 
 void CombSort::resetArray(std::vector<int>& vec) {
 	vec.clear();
-    for (int i = 0; i < 400; i++) {
+    for (int i = 0; i < 500; i++) {
         vec.push_back(i);
     }
 }
