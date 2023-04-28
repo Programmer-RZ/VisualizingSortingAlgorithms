@@ -42,3 +42,7 @@ void Sort::draw(sf::RenderWindow& window, std::vector<int>& vec)
 void Sort::sort(std::vector<int>& vec)
 {
 }
+
+void Sort::playSound(std::vector<int>& vec)
+{
+}

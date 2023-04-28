@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
 #include <string>
 
@@ -32,4 +33,6 @@ public:
 	virtual void draw(sf::RenderWindow& window, std::vector<int>& vec);
 
 	virtual void sort(std::vector<int>& vec);
+	
+	virtual void playSound(std::vector<int>& vec);
 };

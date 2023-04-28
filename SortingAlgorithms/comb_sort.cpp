@@ -82,3 +82,7 @@ void CombSort::sort(std::vector<int>& vec) {
 		}
 	}
 }
+
+void CombSort::playSound(std::vector<int>& vec) {
+	
+}

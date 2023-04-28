@@ -54,7 +54,7 @@ void App::run() {
     CocktailSort cocktailsort("Cocktail Sort", vec.size());
     CombSort combsort("Comb Sort", vec.size());
     InsertionSort insertionsort("Insertion Sort");
-    Sort* sortPtr = &bubblesort;
+    Sort* sortPtr = &combsort;
     std::string currrent_sort_name = sortPtr->getName();
 
     // set vector length based on current algorithm
@@ -63,7 +63,7 @@ void App::run() {
 
     // font, text
     sf::Font font;
-    font.loadFromFile("Montserrat-Regular.ttf");
+    font.loadFromFile("res\Montserrat-Regular.ttf");
 	
 	/*
     sf::Text time;
@@ -173,6 +173,7 @@ void App::run() {
         if (!sortPtr->isFinished()) {
             sortPtr->update(vec);
             sortPtr->sort(vec);
+			sortPtr->playSound(vec);
         }
 
         else {
