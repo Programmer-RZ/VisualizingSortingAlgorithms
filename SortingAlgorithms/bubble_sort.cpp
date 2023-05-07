@@ -20,19 +20,19 @@ void BubbleSort::resetArray(std::vector<int>& vec) {
 
 void BubbleSort::update(std::vector<int>& vec) {
     this->index += 1;
-    if (this->index >= int(vec.size() - 1 - this->sorted_indexes)) {
+    if (this->index >= static_cast<int>(vec.size() - 1 - this->sorted_indexes)) {
         this->index = 0;
         this->sorted_indexes += 1;
     }
 
-    if (this->sorted_indexes >= int(vec.size())) {
+    if (this->sorted_indexes >= vec.size()) {
         this->finished = true;
     }
 }
 
 void BubbleSort::draw(sf::RenderWindow& window, std::vector<int>& vec)
 {
-    for (int i = 0; i < int(vec.size()); i++) {
+    for (int i = 0; i < vec.size(); i++) {
         if (i - 1 == index) {
             bar.setFillColor(sf::Color(0, 0, 255));
         }
@@ -41,10 +41,10 @@ void BubbleSort::draw(sf::RenderWindow& window, std::vector<int>& vec)
             bar.setFillColor(sf::Color(255, 255, 255));
         }
 
-        float height = float(vec[i] * (HEIGHT - 100) / vec.size());
-        float width = float(WIDTH / vec.size());
+        float height = static_cast<float>(vec[i] * (HEIGHT - 100) / vec.size());
+        float width = static_cast<float>(WIDTH / vec.size());
         bar.setSize(sf::Vector2f(width, height));
-        bar.setPosition(sf::Vector2f(float(width * i), float(HEIGHT - height)));
+        bar.setPosition(sf::Vector2f(static_cast<float>(width * i), static_cast<float>(HEIGHT - height)));
         window.draw(bar);
     }
 }

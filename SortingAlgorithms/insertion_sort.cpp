@@ -42,7 +42,7 @@ void InsertionSort::update(std::vector<int>&vec)
 
 void InsertionSort::draw(sf::RenderWindow& window, std::vector<int>& vec)
 {
-	for (int i = 0; i < int(vec.size()); i++) {
+	for (int i = 0; i < vec.size(); i++) {
 		if (i == this->index || i - 1 == this->j) {
 			bar.setFillColor(sf::Color(0, 0, 255));
 		}
@@ -51,10 +51,10 @@ void InsertionSort::draw(sf::RenderWindow& window, std::vector<int>& vec)
 			bar.setFillColor(sf::Color(255, 255, 255));
 		}
 
-		float height = float(vec[i] * (HEIGHT - 100) / vec.size());
-		float width = float(WIDTH / vec.size());
+		float height = static_cast<float>(vec[i] * (HEIGHT - 100) / vec.size());
+		float width = static_cast<float>(WIDTH / vec.size());
 		bar.setSize(sf::Vector2f(width, height));
-		bar.setPosition(sf::Vector2f(float(width * i), float(HEIGHT - height)));
+		bar.setPosition(sf::Vector2f(static_cast<float>(width * i), static_cast<float>(HEIGHT - height)));
 		window.draw(bar);
 	}
 }
@@ -73,4 +73,3 @@ void InsertionSort::sort(std::vector<int>& vec)
 		}
 	}
 }
-

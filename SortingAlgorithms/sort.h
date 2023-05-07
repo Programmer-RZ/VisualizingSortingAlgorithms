@@ -33,6 +33,4 @@ public:
 	virtual void draw(sf::RenderWindow& window, std::vector<int>& vec);
 
 	virtual void sort(std::vector<int>& vec);
-	
-	virtual void playSound(std::vector<int>& vec);
 };

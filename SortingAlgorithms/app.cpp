@@ -24,12 +24,12 @@ void shuffleAnimation(std::vector<int>& vec) {
 void drawVec(std::vector<int>& vec, sf::RenderWindow& window) {
     sf::RectangleShape bar;
     bar.setFillColor(sf::Color(255, 255, 255));
-    for (int i = 0; i < int(vec.size()); i++) {
+    for (int i = 0; i < vec.size(); i++) {
 
-        float height = float(vec[i] * (HEIGHT - 100) / vec.size());
-        float width = float(WIDTH / vec.size());
+        float height = static_cast<float>(vec[i] * (HEIGHT - 100) / vec.size());
+        float width = static_cast<float>(WIDTH / vec.size());
         bar.setSize(sf::Vector2f(width, height));
-        bar.setPosition(sf::Vector2f(float(width * i), float(HEIGHT - height)));
+        bar.setPosition(sf::Vector2f(static_cast<float>(width * i), static_cast<float>(HEIGHT - height)));
         window.draw(bar);
     }
 }
@@ -63,7 +63,7 @@ void App::run() {
 
     // font, text
     sf::Font font;
-    font.loadFromFile("res\Montserrat-Regular.ttf");
+    font.loadFromFile("res\\Montserrat-Regular.ttf");
 	
 	/*
     sf::Text time;
@@ -85,8 +85,8 @@ void App::run() {
     ui.setFont(font);
     ui.setFillColor(sf::Color(255, 255, 255));
 
-
     sf::Clock delay;
+    delay.restart();
 	
     while (window.isOpen())
     {
@@ -173,7 +173,6 @@ void App::run() {
         if (!sortPtr->isFinished()) {
             sortPtr->update(vec);
             sortPtr->sort(vec);
-			sortPtr->playSound(vec);
         }
 
         else {
@@ -193,8 +192,8 @@ void App::run() {
         int microseconds = int((d - milliseconds * 1000) / 100);
 
         ui.setCharacterSize(25);
-        ui.setString("Delay: " + std::to_string(milliseconds) + "." + std::to_string(microseconds) + " ms");
-        ui.setPosition(sf::Vector2f(WIDTH - 200, 25));
+        ui.setString("Render Delay: " + std::to_string(milliseconds) + "." + std::to_string(microseconds) + " ms");
+        ui.setPosition(sf::Vector2f(WIDTH - 250, 25));
         window.draw(ui);
 
         window.display();
